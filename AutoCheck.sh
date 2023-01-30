@@ -110,7 +110,7 @@ else
 fi
 
 #Discord send only Error files
-current_date=$(date +%Y-%m-%d)
+current_date2=$(date +%Y-%m-%d)
 last_run_date=$(cat last_run_date.txt 2>/dev/null)
 
 listfiles=($realm1_auth_log_path_error $realm1_world_log_path_error $realm2_world_log_path_error)
@@ -121,9 +121,9 @@ for file in "${listfiles[@]}"; do
   fi
 done
 
-if [ ${#existing_files[@]} -eq 0 ] && [ "$current_date" != "$last_run_date" ]; then
+if [ ${#existing_files[@]} -eq 0 ] && [ "$current_date2" != "$last_run_date" ]; then
   existing_files=($noerror)
-  echo "$current_date" > last_run_date.txt
+  echo "$current_date2" > last_run_date.txt
 fi
 
 cd ~/wow/discord
