@@ -118,8 +118,12 @@ for file in "${listfiles[@]}"; do
   fi
 done
 
-if [ ${#existing_files[@]} -eq 0 ]; then
+current_date=$(date +%Y-%m-%d)
+last_run_date=$(cat last_run_date.txt 2>/dev/null)
+
+if [ ${#existing_files[@]} -eq 0 ] && [ "$current_date" != "$last_run_date" ]; then
   existing_files=($noerror)
+  echo "$current_date" > last_run_date.txt
 fi
 
 cd ~/wow/discord
