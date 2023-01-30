@@ -1,7 +1,7 @@
 # Auto_Check_ReStart
 Small Auto Check Restart bash script for AzerothCore.
 
-##Installation
+# Installation
 1.Download repo and put it where you want to be
 
 2.Eddit script with your server inforation and folder location and run the script
