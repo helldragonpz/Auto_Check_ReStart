@@ -18,42 +18,41 @@ do
   echo -ne "$percent\r"
   
   # Sleep for a short interval to simulate some processing
-  sleep 0.10
+  sleep 0.20
 done
 
 # Realm Configuration
 current_date=$(date +'%Y-%m-%d_%H:%M')
-realm1_auth_log="logs/realms/realm1/Auth.log"
-realm1_dberrors_log="logs/realms/realm1/DBErrors.log"
-realm1_server_log="logs/realms/realm1/Server.log"
-realm1_auth_tmux="auth"
-realm1_auth_command="/root/wow/acore.sh run-authserver"
+realm1_auth_log="logs/realms/realm1/Auth.log"  #location of your Auth.log
+realm1_dberrors_log="logs/realms/realm1/DBErrors.log" #location of your DBErrors.log
+realm1_auth_tmux="auth" #tmux session name
+realm1_auth_command="/root/wow/acore.sh run-authserver" #Command to run in tmux session
 realm1_auth_log_path="logs/AutoCheck/realm1/Auth.log"
 realm1_auth_log_path_error="logs/AutoCheck/realm1/Auth-$(date +'%Y-%m-%d_%H:%M').log"
 
-realm1_server_log="logs/realms/realm1/Server.log"
-realm1_world_tmux="world"
-realm1_world_command="/root/wow/acore.sh run-worldserver"
+realm1_server_log="logs/realms/realm1/Server.log" #location of your Server.log
+realm1_world_tmux="world" #tmux session name
+realm1_world_command="/root/wow/acore.sh run-worldserver" #Command to run in tmux session
 realm1_world_log_path="logs/AutoCheck/realm1/Realm1.log"
 realm1_world_log_path_error="logs/AutoCheck/realm1/Realm1-$(date +'%Y-%m-%d_%H:%M').log"
 
-realm2_server_log="logs/realms/realm2/Server.log"
-realm2_dberrors_log="logs/realms/realm2/DBErrors.log"
-realm2_world_tmux="world2"
-realm2_world_command="/root/wow2/acore.sh run-worldserver"
+realm2_server_log="logs/realms/realm2/Server.log" #location of your Server.log
+realm2_dberrors_log="logs/realms/realm2/DBErrors.log" #location of your DBErrors.log
+realm2_world_tmux="world2" #tmux session name
+realm2_world_command="/root/wow2/acore.sh run-worldserver" #Command to run in tmux session
 realm2_world_log_path="logs/AutoCheck/realm2/Realm2.log"
 realm2_world_log_path_error="logs/AutoCheck/realm2/Realm2-$(date +'%Y-%m-%d_%H:%M').log"
 
 external_ip="your.logon.com" #your external ip or dns
-auth_port="3724"
-realm1_port="8085"
-realm2_port="8086"
-mysql_ip="127.0.0.1"
-mysql_port="3306"
-realm1_name="Realm1"
-realm2_name="Realm2"
+auth_port="3724"  #Port of your auth server
+realm1_port="8085" #Port of your Realm1 World server
+realm2_port="8086"  #Port of your Realm2 World server
+mysql_ip="127.0.0.1" #internal mysql ip or external
+mysql_port="3306" #port of your Mysql
+realm1_name="Realm1" #name of your realm1
+realm2_name="Realm2" #name of your realm2 
 
-noerror="/root/wow/logs/AutoCheck/NoErrorFound.log"
+noerror="/root/wow/logs/AutoCheck/NoErrorFound.log" #No Error log file that discord.sh will youse to send to you in event of non error
 WEBHOOK="https://discord.com/api/webhooks/" #A discord configuration for WebHooks
 
 # Check Auth Log for Errors
