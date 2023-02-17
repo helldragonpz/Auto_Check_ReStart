@@ -135,3 +135,13 @@ for existing_file in "${existing_files[@]}"; do
     --text "AutoCheck Service for $current_date\nPlece take a look for errors!"
 done
 echo "AutoCheck Service for $current_date is complete"
+
+# Check if servers are back
+nc -zw 10 $external_ip $auth_port || \
+nc -zw 10 $external_ip $realm1_port || \
+nc -zw 10 $external_ip $realm2_port && {
+echo "Servers are down. Rebooting PC...";
+timeout -t 10 reboot
+}
+echo "Servers are Online."
+echo "Check the logfiles for missed errors."
